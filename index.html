@@ -7,118 +7,92 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        :root {
-            --primary: #b08d57; 
-            --dark: #2c2c2c;
-            --light-bg: #fdfbf7;
-        }
-
-        /* SỬA LỖI CUỘN TRANG */
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: auto; /* Cho phép chiều cao tự động theo nội dung */
-            overflow-x: hidden;
-            overflow-y: auto; /* Bắt buộc cho phép cuộn dọc */
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--dark);
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        #bg-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4);
-            z-index: 0;
-        }
-
-        .hero-content {
-            z-index: 1;
-            padding: 30px;
-            border: 1px solid rgba(255,255,255,0.3);
-            background: rgba(0,0,0,0.2);
-            backdrop-filter: blur(8px);
-            width: 85%;
-            max-width: 550px;
-        }
-
-        .hero h1 { font-family: 'Great Vibes', cursive; font-size: clamp(2.5rem, 8vw, 5rem); margin: 10px 0; }
+        :root { --primary: #b08d57; --dark: #2c2c2c; --light-bg: #fdfbf7; }
+        html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; background-color: var(--light-bg); color: var(--dark); font-family: 'Montserrat', sans-serif; }
         
-        /* Countdown Box */
-        .countdown-container {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 20px;
-        }
+        /* Hero Video Section */
+        .hero { position: relative; height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; overflow: hidden; }
+        #bg-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -1; transform: translate(-50%, -50%); object-fit: cover; }
+        .hero::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 0; }
+        .hero-content { z-index: 1; padding: 30px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.2); backdrop-filter: blur(8px); width: 85%; max-width: 550px; }
+        .hero h1 { font-family: 'Great Vibes', cursive; font-size: clamp(2.5rem, 8vw, 5rem); margin: 10px 0; }
 
-        .cd-box {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 8px;
-            min-width: 60px;
-            border-radius: 4px;
-        }
+        /* Countdown */
+        .countdown-container { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+        .cd-box { background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); padding: 10px; min-width: 65px; border-radius: 4px; }
+        .cd-number { display: block; font-size: 1.6rem; font-weight: 600; }
+        .cd-label { font-size: 0.65rem; text-transform: uppercase; }
 
-        .cd-number { display: block; font-size: 1.5rem; font-weight: 600; }
-        .cd-label { font-size: 0.6rem; text-transform: uppercase; opacity: 0.9; }
-
-        /* Các Section khác */
-        section { 
-            position: relative;
-            padding: 80px 20px; 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            text-align: center;
-            clear: both;
-        }
-
+        /* Sections */
+        section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; text-align: center; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 60px; position: relative; display: inline-block; }
-        .section-title::after { content: '❦'; position: absolute; bottom: -35px; left: 50%; transform: translateX(-50%); color: var(--primary); }
-
-        .event-card { background: white; padding: 40px 20px; border: 1px solid #eee; margin-bottom: 20px; flex: 1; min-width: 280px; }
+        .section-title::after { content: '❦'; position: absolute; bottom: -35px; left: 50%; transform: translateX(-50%); color: var(--primary); font-size: 1.2rem; }
+        
         .event-wrap { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-
-        .btn-map { display: inline-block; margin-top: 20px; padding: 10px 25px; border: 1px solid var(--primary); color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.8rem; }
-        .btn-map:hover { background: var(--primary); color: #fff; }
-
-        /* Gallery */
+        .event-card { background: white; padding: 40px 20px; border: 1px solid #eee; flex: 1; min-width: 280px; }
+        .btn-map { display: inline-block; margin-top: 20px; padding: 10px 25px; border: 1px solid var(--primary); color: var(--primary); text-decoration: none; font-weight: 600; }
+        
         .gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 15px; }
-        .gallery-item { width: 100%; height: 300px; object-fit: cover; }
-        .img-1 { grid-column: 1 / 13; height: 450px; }
-        .img-2 { grid-column: 1 / 7; }
-        .img-3 { grid-column: 7 / 13; }
+        .gallery-item { width: 100%; height: 350px; object-fit: cover; }
+        .img-1 { grid-column: 1/13; } .img-2 { grid-column: 1/7; } .img-3 { grid-column: 7/13; }
 
-        .qr-image { width: 200px; border-radius: 10px; margin-bottom: 15px; }
+        @media (max-width: 768px) { .gallery-grid { display: block; } .gallery-item { margin-bottom: 15px; } }
+    </style>
+</head>
+<body>
 
-        @media (max-width: 768px) {
-            .gallery-grid { display: block; }
-            .gallery-item { margin-bottom: 15px; height: 350px;
+    <header class="hero">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="https://raw.githubusercontent.com/phadaclinh/linh-quynh-/main/VIDEO_DOWNLOAD_1767800435994_1767838077033.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content" data-aos="zoom-in">
+            <h2 style="font-weight:300; letter-spacing:3px;">WEDDING INVITATION</h2>
+            <h1>Đắc Linh & Ngọc Quỳnh</h1>
+            <p>27 . 01 . 2026</p>
+            <div class="countdown-container">
+                <div class="cd-box"><span class="cd-number" id="days">00</span><span class="cd-label">Ngày</span></div>
+                <div class="cd-box"><span class="cd-number" id="hours">00</span><span class="cd-label">Giờ</span></div>
+                <div class="cd-box"><span class="cd-number" id="minutes">00</span><span class="cd-label">Phút</span></div>
+                <div class="cd-box"><span class="cd-number" id="seconds">00</span><span class="cd-label">Giây</span></div>
+            </div>
+        </div>
+    </header>
+
+    <section data-aos="fade-up">
+        <h2 class="section-title">Sự Kiện Cưới</h2>
+        <div class="event-wrap">
+            <div class="event-card">
+                <h3>Tiệc Cưới</h3>
+                <p>15:00 — 27.01.2026</p>
+                <p>123 Phố Trà 1, xã Vĩnh Yên, tỉnh Phú Thọ</p>
+                <a href="https://goo.gl/maps/xyz" class="btn-map">XEM BẢN ĐỒ</a>
+            </div>
+        </div>
+    </section>
+
+    <section data-aos="fade-up">
+        <h2 class="section-title">Khoảnh Khắc</h2>
+        <div class="gallery-grid">
+            <img src="https://github.com/phadaclinh/linh-quynh-/blob/main/MEITU_20250501_014343821.jpg?raw=true" class="gallery-item img-1">
+            <img src="https://github.com/phadaclinh/linh-quynh-/blob/main/MEITU_20250202_231931342~2.jpg?raw=true" class="gallery-item img-2">
+            <img src="https://github.com/phadaclinh/linh-quynh-/blob/main/MEITU_20250202_231701325.jpg?raw=true" class="gallery-item img-3">
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        const weddingDate = new Date("Jan 27, 2026 15:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000*60*60*24)).toString().padStart(2,'0');
+                document.getElementById("hours").innerText = Math.floor((diff % (1000*60*60*24)) / (1000*60*60)).toString().padStart(2,'0');
+                document.getElementById("minutes").innerText = Math.floor((diff % (1000*60*60)) / (1000*60)).toString().padStart(2,'0');
+                document.getElementById("seconds").innerText = Math.floor((diff % (1000*60)) / 1000).toString().padStart(2,'0');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
